@@ -8,19 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.project .btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const url = btn.dataset.url;
-            if (url && url !== '#') window.location.href = url; // opent in hetzelfde tabblad
+            if (url && url !== '#') window.location.href = url;
         });
     });
 
+    // ---------------- CONTACT FORM ----------------
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', e => {
         e.preventDefault();
         const status = document.getElementById('formStatus');
         status.textContent = 'Sending...';
-        setTimeout(() => {
-            status.textContent = 'Message sent successfully!';
-            form.reset();
-        }, 1000);
+
+        // Formspree URL invullen (vervang dit met jouw eigen Formspree endpoint!)
+        const formUrl = "https://formspree.io/f/xayvbdpq";
+
+        fetch(formUrl, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        })
+            .then(response => {
+                if (response.ok) {
+                    form.reset();
+                    status.textContent = "Message sent successfully! 🪄";
+                } else {
+                    status.textContent = "Oops! Something went wrong.";
+                }
+            })
+            .catch(() => {
+                status.textContent = "Oops! Something went wrong.";
+            });
     });
 
     const themeToggle = document.getElementById('themeToggle');
@@ -42,24 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('disco-active');
         createDiscoBall();
 
-        // Regen van confetti
         for (let i = 0; i < 100; i++) {
             setTimeout(createConfetti, i * 100);
         }
 
-        // Start disco muziek
-        discoMusic = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_66c1f8b3c0.mp3?filename=disco-funk-11277.mp3');
+        discoMusic = new Audio('retro-disco-old-school-117950.mp3');
         discoMusic.volume = 0.5;
         discoMusic.play();
 
-        // Achtergrond kleuren wisselen
         let hue = 0;
         colorInterval = setInterval(() => {
             hue += 20;
             document.body.style.backgroundColor = `hsl(${hue}, 70%, 40%)`;
         }, 200);
 
-        // Stop disco na 10 seconden
         setTimeout(stopDisco, 10000);
     }
 
@@ -82,11 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createDiscoBall() {
-        const existingBall = document.getElementById('discoBall');
-        if (existingBall) return; // voorkomt dubbele ballen
+        if (document.getElementById('discoBall')) return;
 
         const discoBall = document.createElement('img');
-        discoBall.src = '505264_37792.gif'; // jouw discobal-afbeelding
+        discoBall.src = '505264_37792.gif';
         discoBall.id = 'discoBall';
         discoBall.classList.add('disco-ball');
         document.body.appendChild(discoBall);
@@ -96,15 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const discoBall = document.getElementById("discoBall");
         if (discoBall) {
             discoBall.style.opacity = "0";
-            setTimeout(() => discoBall.remove(), 500); // fade-out
+            setTimeout(() => discoBall.remove(), 500);
         }
     }
-    // stel duur van de disco in (bijv. 10 seconden)
-    setTimeout(() => {
-        stopDisco();
-        isDiscoActive = false;
-        discoButton.disabled = false;
-    }, 10000);
 }); // sluit DOMContentLoaded af
 
 // ------------------ SCROLL FUNCTION ------------------
