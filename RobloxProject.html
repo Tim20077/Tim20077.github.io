@@ -115,6 +115,29 @@
         .back-btn:hover {
             opacity: 0.8;
         }
+        /* === Work in Progress Overlay === */
+        .work-in-progress {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-in-progress .progress-banner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            font-weight: 800;
+            font-size: 2rem;
+            padding: 0.5em 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            pointer-events: none;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
     </style>
 </head>
 <body>
@@ -157,7 +180,8 @@
         </div>
 
         <!-- Foto 2 -->
-        <div class="media-card">
+        <div class="media-card work-in-progress">
+            <div class="progress-banner">Work in Progress</div>
             <img src="images/roblox2.jpg" alt="Sound system">
             <div class="media-info">
                 <h4>Sound Trigger</h4>
@@ -166,7 +190,8 @@
         </div>
 
         <!-- Video 2 -->
-        <div class="media-card">
+        <div class="media-card work-in-progress">
+            <div class="progress-banner">Work in Progress</div>
             <video controls>
                 <source src="videos/roblox-sounds.mp4" type="video/mp4">
             </video>
@@ -177,13 +202,15 @@
         </div>
 
         <!-- Foto 3 -->
-        <div class="media-card">
+        <div class="media-card work-in-progress">
+            <div class="progress-banner">Work in Progress</div>
             <img src="images/roblox3.jpg" alt="Plank placement">
             <div class="media-info">
                 <h4>Placement System</h4>
                 <p>Players can click on transparent parts to place objects dynamically in the world.</p>
             </div>
         </div>
+
 
     </div>
 </section>
