@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Project Gallery</title>
+    <style>
+        :root {
+            --bg: #0e1117;
+            --fg: #e8eef4;
+            --accent: #00d4ff;
+            --card: #1c1f26;
+            --muted: #9aa4b2;
+            --radius: 12px;
+            color-scheme: dark;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo {
+            background: var(--accent);
+            color: #00131a;
+            font-weight: 800;
+            border-radius: 50%;
+            padding: 14px;
+        }
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+        .section {
+            padding: 60px 10%;
+        }
+        .project-gallery h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        .project-gallery .subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 40px;
+        }
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .media-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .media-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.15);
+        }
+        .media-card img,
+        .media-card video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius);
+        }
+        .media-info {
+            padding: 15px;
+        }
+        .media-info h4 {
+            margin: 0;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        .media-info p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .back-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #00131a;
+            border: none;
+            border-radius: var(--radius);
+            padding: 10px 20px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 40px;
+            transition: opacity 0.2s;
+        }
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="brand">
+        <div class="logo">T</div>
+        <strong>Tim Megens</strong>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+</header>
+
+<section class="section project-gallery">
+    <h2>Roblox Game — Project Gallery</h2>
+    <p class="subtitle">Behind the scenes of my scripting and design experiments.</p>
+
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+
+    <div class="media-grid">
+
+        <!-- Foto 1 -->
+        <div class="media-card">
+            <img src="Schermafbeelding 2025-10-27 193614.png" alt="Pickup system screenshot">
+            <div class="media-info">
+                <h4>DataHandler</h4>
+                <p>Scripted using Lua — This is the Data handler. How the game saves your progress, but also shows the leaderboard from roblox.</p>
+            </div>
+        </div>
+
+        <!-- Video 1 -->
+        <div class="media-card">
+            <video controls poster="images/roblox-preview.jpg">
+                <source src="Roblox bowling game.mp4" type="video/mp4">
+            </video>
+            <div class="media-info">
+                <h4>Roblox BowlingGods Gameplay Demo</h4>
+                <p>Showcasing the bowling mechanic. And the rest of the gameplay. When you join the game it automaticly put you on the most left bowling lane that is available. The video even shows that you can buy curency in the game.</p>
+            </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="media-card">
+            <img src="images/roblox2.jpg" alt="Sound system">
+            <div class="media-info">
+                <h4>Sound Trigger</h4>
+                <p>Added dynamic sounds that play when players move close to certain objects.</p>
+            </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="media-card">
+            <video controls>
+                <source src="videos/roblox-sounds.mp4" type="video/mp4">
+            </video>
+            <div class="media-info">
+                <h4>Ambient Sound Demo</h4>
+                <p>Looping background sound that restarts automatically when it ends.</p>
+            </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="media-card">
+            <img src="images/roblox3.jpg" alt="Plank placement">
+            <div class="media-info">
+                <h4>Placement System</h4>
+                <p>Players can click on transparent parts to place objects dynamically in the world.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2025 Tim Megens — SuperTimtastic Creations ✨
+</footer>
+</body>
+</html>

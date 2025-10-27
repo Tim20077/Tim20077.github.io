@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.project .btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const url = btn.dataset.url;
-            if (url && url !== '#') window.open(url, '_blank');
+            if (url && url !== '#') window.location.href = url; // opent in hetzelfde tabblad
         });
     });
 
