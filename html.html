@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tim Megens — Portfolio</title>
+    <meta name="description" content="Modern and clean developer portfolio — focused on scripting, games, and creative code." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="brand">
+        <div class="logo">TM</div>
+        <div>
+            <h1>Tim Megens</h1>
+            <p>Creative Developer • Magician • Game Scripter</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle">☀️ / 🌙</button>
+        <button id="discoBtn">🪩 Disco!</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="intro">
+        <h2>Hi, I'm Timothy!</h2>
+        <p>I’m a creative developer who loves scripting, designing interactions, and building small games. My goal is to make digital experiences feel alive — whether it’s a web experiment or a full game like <strong>Flappy Bird</strong> recreated from scratch!</p>
+        <div class="cta">
+            <button class="btn" id="btnProjects">View Projects</button>
+            <button class="btn secondary" id="btnContact">Get in Touch</button>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <p class="small">Some of my scripting and creative coding work.</p>
+        <div class="grid-3">
+
+            <article class="project">
+                <h3>Top Down school project</h3>
+                <p><strong>Top Down</strong> A game for a school project.</p>
+                <div class="tags"><span>JavaScript</span><span>Canvas</span><span>Game Dev</span></div>
+                <button class="btn" data-url>Play</button>
+            </article>
+
+            <article class="project">
+                <h3>Magic Trick Website</h3>
+                <p>An interactive site combining magic and web scripting — watch a virtual trick happen right before your eyes 🪄</p>
+                <div class="tags"><span>HTML</span><span>CSS</span><span>Animations</span></div>
+                <button class="btn" data-url="untitled1/supertimtastic.html">See Demo</button>
+            </article>
+
+            <article class="project">
+                <h3>Roblox Game</h3>
+                <p>Lua scripts for Roblox Studio — creating pickup systems, sound triggers.</p>
+                <div class="tags"><span>Lua</span><span>Roblox</span></div>
+                <button class="btn" data-url="#">View Images</button>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>I’m a developer who mixes code and creativity. I enjoy writing clean scripts, crafting interactive experiences, and performing magic in my free time. Coding feels like magic — and sometimes, it actually is. I speak Dutch & English but don't ask me to speak English, because I hate it!:)</p>
+        <p><strong>Languages & Tools:</strong> JavaScript, HTML, CSS, Lua, C#</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button class="btn" type="submit">Send</button>
+            <div id="formStatus" class="small"></div>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Tim Megens — Built with magic! ✨</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

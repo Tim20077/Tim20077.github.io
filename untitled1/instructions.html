@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperTimtastic</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+<img src=".idea/pngtree-magic-playing-cards-icon-png-image_4894066.png" height="200" width="200"/>
+<div class="stars"></div>
+<div class="container">
+  <h1>Instructies voor de Goocheltruc</h1>
+  <div id="instructionText" class="instruction-text"></div>
+  <div id="cardGuess" class="card-guess"></div>
+  <button class="next-step-button" onclick="showNextInstruction()">Volgende Stap</button>
+  <button id="backToMenu" class="back-to-menu-button" onclick="goToMenu()" style="display: none;">🔙Terug naar Menu</button>
+</div>
+<div id="trail-container"></div>
+<!-- Magisch hulpje -->
+<div class="magic-helper">
+  <img   src="wmremove-transformed.png" alt="Goochelaar Tim" class="magician-img"><img>
+  <div class="speech-bubble" id="speech-bubble">...</div>
+
+</div>
+
+<script src="instructions2.js"></script>
+<script src="magicHelper.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>De Magische Goochelquiz ✨</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0a0026, #1b0033);
+      font-family: 'Georgia', serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.5); }
+    }
+
+    .quiz-container {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .quiz-container h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ffe600;
+      text-shadow: 0 0 10px #ffdd00;
+    }
+
+    .quiz-container button {
+      display: block;
+      width: 80%;
+      margin: 10px auto;
+      padding: 15px;
+      font-size: 18px;
+      background-color: #440088;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .quiz-container button:hover {
+      background-color: #6600cc;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    #nextBtn {
+      margin-top: 20px;
+      display: none;
+    }
+
+    /* 🎉 Confetti-style */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      opacity: 0.8;
+      animation: fall 2s linear forwards;
+      z-index: 10;
+      border-radius: 2px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(300px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* 🌟 Cursor Trail */
+    .cursor-star {
+      position: absolute;
+      color: #ffe600;
+      font-size: 20px;
+      pointer-events: none;
+      animation: fadeAndShrink 0.8s forwards;
+      z-index: 999;
+    }
+
+    @keyframes fadeAndShrink {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<div class="quiz-container">
+  <h1>🪄 De Grote Goochelquiz 🧙‍♂️</h1>
+  <div id="questionBox">
+    <p id="question">Vraag komt hier...</p>
+    <div id="answers"></div>
+    <div class="result" id="feedback"></div>
+    <button id="nextBtn" onclick="nextQuestion()">Volgende vraag ➡️</button>
+  </div>
+  <div id="endScreen" style="display:none;">
+    <h2>🎉 Je hebt de quiz afgerond!</h2>
+    <p id="finalScore"></p>
+    <button onclick="location.reload()">Probeer opnieuw 🔁</button>
+    <button onclick="window.location.href='supertimtastic.html'">Terug naar hoofdpagina 🏠</button>
+  </div>
+</div>
+
+<script>
+  const questions = [
+    {
+      question: "Hoe heet de goochelaar die bekend staat om zijn ontsnappingstrucs?",
+      answers: [
+        "David Copperfield",
+        "Harry Houdini",
+        "Penn & Teller",
+        "Hans Klok"
+      ],
+      correct: 1
+    },
+    {
+      question: "In welke grote stad willen alle goochelaars optreden?",
+      answers: [
+        "Las Vegas",
+        "Utrecht",
+        "De Efteling",
+        "Parijs"
+      ],
+      correct: 0
+    },
+    {
+      question: "Wat betekent 'misdirection' in de goochelwereld?",
+      answers: [
+        "Een verdwijntruc",
+        "Afleiding van het publiek",
+        "Een goochelaar met een slechte GPS",
+        "Een toverspreuk"
+      ],
+      correct: 1
+    },
+    {
+      question: "Welke bekende goochelaar liet ooit het Vrijheidsbeeld 'verdwijnen'?",
+      answers: [
+        "David Blaine",
+        "Harry Potter (volgens zijn fans)",
+        "David Copperfield",
+        "Harry Houdini",
+      ],
+      correct: 2
+    },
+    {
+      question: "Wat roept een goochelaar meestal bij een truc?",
+      answers: [
+        "Abracadabra!",
+        "Broodje Shoarma!",
+        "Expelliarmus!",
+        "Joebadoebadoe!"
+      ],
+      correct: 0
+    }
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+
+  function showQuestion() {
+    const q = questions[currentQuestion];
+    document.getElementById("question").textContent = `Vraag ${currentQuestion + 1}: ${q.question}`;
+    const answersDiv = document.getElementById("answers");
+    answersDiv.innerHTML = "";
+    q.answers.forEach((answer, index) => {
+      const btn = document.createElement("button");
+      btn.textContent = answer;
+      btn.onclick = () => checkAnswer(index);
+      answersDiv.appendChild(btn);
+    });
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("nextBtn").style.display = "none";
+  }
+
+  function checkAnswer(index) {
+    const q = questions[currentQuestion];
+    const feedback = document.getElementById("feedback");
+    if (index === q.correct) {
+      feedback.textContent = "Goed gedaan! ✨";
+      feedback.style.color = "#00ffcc";
+      score++;
+      launchConfetti(); // 🎉 Launch confetti!
+    } else {
+      feedback.textContent = "Oei, dat was een illusie... 😅";
+      feedback.style.color = "#ff5555";
+    }
+    document.getElementById("nextBtn").style.display = "inline-block";
+    const buttons = document.querySelectorAll("#answers button");
+    buttons.forEach(btn => btn.disabled = true);
+  }
+
+  function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      showQuestion();
+    } else {
+      document.getElementById("questionBox").style.display = "none";
+      document.getElementById("endScreen").style.display = "block";
+      document.getElementById("finalScore").textContent = `Je had ${score} van de ${questions.length} vragen goed! 🧙‍♀️`;
+    }
+  }
+
+  function createStars() {
+    const starsContainer = document.querySelector('.stars');
+    for (let i = 0; i < 100; i++) {
+      let star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+      starsContainer.appendChild(star);
+    }
+  }
+
+  function launchConfetti() {
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.top = "0px";
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confetti.style.animationDuration = `${Math.random() * 1 + 1.5}s`;
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 2000);
+    }
+  }
+
+  // 🌟 Cursor trail functie
+  document.addEventListener('mousemove', function(e) {
+    const star = document.createElement('div');
+    star.classList.add('cursor-star');
+    star.textContent = '✨';
+    star.style.left = `${e.clientX}px`;
+    star.style.top = `${e.clientY}px`;
+    document.body.appendChild(star);
+
+    setTimeout(() => {
+      star.remove();
+    }, 800);
+  });
+
+  // Start quiz
+  createStars();
+  showQuestion();
+</script>
+
+</body>
+</html>

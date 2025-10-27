@@ -1,0 +1,151 @@
+/* styles.css */
+:root {
+    --bg: #0e1117;
+    --fg: #e8eef4;
+    --accent: #00d4ff;
+    --card: #1c1f26;
+    --muted: #9aa4b2;
+    --radius: 12px;
+    color-scheme: dark;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo {
+    background: var(--accent);
+    color: #00131a;
+    font-weight: 800;
+    border-radius: 50%;
+    padding: 14px;
+}
+nav a, nav button {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+.hero {
+    text-align: center;
+    padding: 60px 10%;
+}
+.btn {
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    color: #00131a;
+    padding: 10px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 10px;
+}
+.btn.secondary {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+.section {
+    padding: 60px 10%;
+}
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.project {
+    background: var(--card);
+    padding: 20px;
+    border-radius: var(--radius);
+    transition: transform 0.2s;
+}
+.project:hover {
+    transform: translateY(-6px);
+}
+.tags span {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+}
+input, textarea {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 10px;
+    color: var(--fg);
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+.disco-active {
+    animation: discoBackground 1s infinite alternate;
+}
+@keyframes discoBackground {
+    0% { background-color: #ff0066; }
+    25% { background-color: #00d4ff; }
+    50% { background-color: #39ff14; }
+    75% { background-color: #ffcc00; }
+    100% { background-color: #ff0066; }
+}
+.disco-ball {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    /*animation: spin 4s linear infinite;*/
+    z-index: 1000;
+}
+@keyframes spin {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: fall 3s linear forwards;
+    z-index: 999;
+}
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+#discoBall {
+    transition: opacity 0.5s ease;
+}

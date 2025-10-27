@@ -1,0 +1,118 @@
+body {
+
+    background: radial-gradient(circle at center, #1a1a40, black);
+    cursor: url('cursor.png'), auto;
+    color: white;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+img:hover {
+    transform: scale(1.2);
+}
+.trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #fff, rgba(255,255,255,0));
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fadeOut 0.5s ease forwards;
+}
+/* Magische knoppen */
+.magic-button, .trick-button {
+    background: linear-gradient(45deg, gold, orange);
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.4s;
+    margin: 10px;
+    box-shadow: 0 0 15px gold;
+}
+.trick-button:hover, .magic-button:hover {
+    transform: rotate(20deg);
+}
+
+.magic-button:hover, .trick-button:hover {
+    background: darkred;
+    color: white;
+    box-shadow: 0 0 25px red;
+}
+#startQuizBtn {
+    padding: 12px 24px;
+    background-color: #ff0077;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#startQuizBtn:hover {
+    background-color: #cc0060;
+}
+
+
+/* Verborgen magische tekst */
+.hidden-message {
+    display: none;
+    font-size: 26px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Sterrenhemel */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate, moveStars 10s linear infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes moveStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(50px); }
+}
+
+/* Fade-in animatie */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(1);
+    }}
+
