@@ -12,33 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ---------------- CONTACT FORM ----------------
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const status = document.getElementById('formStatus');
-        status.textContent = 'Sending...';
 
-        // Formspree URL invullen (vervang dit met jouw eigen Formspree endpoint!)
-        const formUrl = "https://formspree.io/f/xayvbdpq";
-
-        fetch(formUrl, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        })
-            .then(response => {
-                if (response.ok) {
-                    form.reset();
-                    status.textContent = "Message sent successfully! 🪄";
-                } else {
-                    status.textContent = "Oops! Something went wrong.";
-                }
-            })
-            .catch(() => {
-                status.textContent = "Oops! Something went wrong.";
-            });
-    });
 
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {

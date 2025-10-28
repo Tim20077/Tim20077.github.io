@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roblox Project Galerij</title>
+  <style>
+    :root {
+      --bg: #0e1117;
+      --fg: #e8eef4;
+      --accent: #00d4ff;
+      --card: #1c1f26;
+      --muted: #9aa4b2;
+      --radius: 12px;
+      color-scheme: dark;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      background: var(--accent);
+      color: #00131a;
+      font-weight: 800;
+      border-radius: 50%;
+      padding: 14px;
+    }
+    nav a, nav button {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .section {
+      padding: 60px 10%;
+    }
+    .project-gallery h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    .project-gallery .subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .media-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .media-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0, 212, 255, 0.15);
+    }
+    .media-card img,
+    .media-card video {
+      width: 100%;
+      height: 50%;
+      display: block;
+      border-radius: var(--radius);
+    }
+    .media-info {
+      padding: 15px;
+    }
+    .media-info h4 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    .media-info p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .back-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #00131a;
+      border: none;
+      border-radius: var(--radius);
+      padding: 10px 20px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: opacity 0.2s;
+    }
+    .back-btn:hover {
+      opacity: 0.8;
+    }
+    /* === Work in Progress Overlay === */
+    .work-in-progress {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-in-progress .progress-banner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      background: rgba(255, 0, 0, 0.8);
+      color: white;
+      font-weight: 800;
+      font-size: 2rem;
+      padding: 0.5em 2em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      pointer-events: none;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">TM</div>
+    <strong>Tim Megens</strong>
+  </div>
+  <nav>
+    <a href="index-nl.html">Home</a>
+    <button onclick="window.location.href='RobloxProject.html'">🇬🇧 English</button>
+  </nav>
+</header>
+
+<section class="section project-gallery">
+  <h2>Roblox Game — Project Galerij</h2>
+  <p class="subtitle">Achter de schermen van mijn scripten en ontwerpexperimenten.</p>
+
+  <a href="PortfolioNL.html" class="back-btn">← Terug naar Portfolio</a>
+
+  <div class="media-grid">
+
+    <!-- Foto 1 -->
+    <div class="media-card">
+      <img src="Schermafbeelding 2025-10-27 193614.png" alt="Pickup systeem screenshot">
+      <div class="media-info">
+        <h4>DataHandler</h4>
+        <p>Gemaakt in Lua — Dit is de DataHandler. Zo slaat de game je voortgang op en toont hij het leaderboard vanuit Roblox.</p>
+      </div>
+    </div>
+
+    <!-- Video 1 -->
+    <div class="media-card">
+      <video controls poster="images/roblox-preview.jpg">
+        <source src="Roblox bowling game.mp4" type="video/mp4">
+      </video>
+      <div class="media-info">
+        <h4>Roblox BowlingGods Gameplay Demo</h4>
+        <p>Toont de bowlingmechaniek en de rest van de gameplay. Wanneer je de game joint, plaatst het systeem je automatisch op de meest linkse beschikbare baan. De video laat ook zien dat je valuta kunt kopen in de game.</p>
+      </div>
+    </div>
+
+<!--    &lt;!&ndash; Foto 2 &ndash;&gt;-->
+<!--    <div class="media-card work-in-progress">-->
+<!--      <div class="progress-banner">In Ontwikkeling</div>-->
+<!--      <img src="images/roblox2.jpg" alt="Geluidsysteem">-->
+<!--      <div class="media-info">-->
+<!--        <h4>Geluids-Trigger</h4>-->
+<!--        <p>Dynamische geluiden toegevoegd die afspelen wanneer spelers dichtbij bepaalde objecten komen.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Video 2 &ndash;&gt;-->
+<!--    <div class="media-card work-in-progress">-->
+<!--      <div class="progress-banner">In Ontwikkeling</div>-->
+<!--      <video controls>-->
+<!--        <source src="videos/roblox-sounds.mp4" type="video/mp4">-->
+<!--      </video>-->
+<!--      <div class="media-info">-->
+<!--        <h4>Omgevingsgeluid Demo</h4>-->
+<!--        <p>Een achtergrondgeluid dat automatisch opnieuw start zodra het eindigt.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Foto 3 &ndash;&gt;-->
+<!--    <div class="media-card work-in-progress">-->
+<!--      <div class="progress-banner">In Ontwikkeling</div>-->
+<!--      <img src="images/roblox3.jpg" alt="Plank plaatsing">-->
+<!--      <div class="media-info">-->
+<!--        <h4>Plaatsingssysteem</h4>-->
+<!--        <p>Spelers kunnen op transparante onderdelen klikken om objecten dynamisch in de wereld te plaatsen.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+  </div>
+</section>
+
+<footer>
+  © 2025 Tim Megens — SuperTimtastic Creations ✨
+</footer>
+</body>
+</html>

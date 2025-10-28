@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tim Megens — Portfolio</title>
+  <meta name="description" content="Modern en strak ontwikkelaarsportfolio — gericht op scripten, games en creatieve code." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">TM</div>
+    <div>
+      <h1>Tim Megens</h1>
+      <p>Creatieve Ontwikkelaar • Goochelaar • Game-Scripter</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#projects">Projecten</a>
+    <a href="#about">Over mij</a>
+    <a href="#contact">Contact</a>
+    <button id="themeToggle">☀️ / 🌙</button>
+    <button id="discoBtn">🪩 Disco!</button>
+    <button class="btn" onclick="window.location.href='index.html'">🇬🇧 English</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="intro">
+    <h2>Hoi, ik ben Tim Megens!</h2>
+    <p>Ik ben een creatieve ontwikkelaar en goochelaar die houdt van scripten, interactieve momenten ontwerpen en het bouwen van leuke kleine games. Ik combineer mijn passie voor coderen, optreden en verhalen vertellen om ervaringen te creëren die verrassen en vermaken.
+
+      Voor mij voelt scripten als goochelen — je zoekt naar slimme oplossingen en plotseling komt iets wat onmogelijk leek tot leven. ✨</p>
+    <div class="cta">
+      <button class="btn" id="btnProjects">Bekijk Projecten</button>
+      <button class="btn secondary" id="btnContact">Neem contact op</button>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section id="projects" class="section">
+    <h2>Projecten</h2>
+    <p class="small">Een aantal van mijn scripten creatieve code-projecten.</p>
+    <div class="grid-3">
+
+      <article class="project work-in-progress">
+        <div class="progress-banner">In Ontwikkeling</div>
+        <h3>Top Down schoolproject</h3>
+        <p><strong>Top Down</strong> — een game voor een schoolopdracht.</p>
+        <div class="tags"><span>JavaScript</span><span>Canvas</span><span>Game Dev</span></div>
+        <button class="btn" data-url>Bekijk afbeeldingen</button>
+      </article>
+
+      <article class="project">
+        <h3>Goochelwebsite</h3>
+        <p>Een interactieve site die magie combineert met web-scripting — bekijk een virtuele truc die zich recht voor je ogen afspeelt 🪄</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>Animaties</span></div>
+        <button class="btn" data-url="untitled1/supertimtastic.html">Bekijk Demo</button>
+      </article>
+
+      <article class="project">
+        <h3>Roblox Game</h3>
+        <p>Lua-scripts voor Roblox Studio — met ophaalsystemen en geluidstriggers.</p>
+        <div class="tags"><span>Lua</span><span>Roblox</span></div>
+        <button class="btn" data-url="RobloxProjectNL.html">Bekijk afbeeldingen</button>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>Over mij</h2>
+    <p>Ik ben een ontwikkelaar die code en creativiteit combineert. Ik schrijf graag scripts, maak interactieve ervaringen en treed in mijn vrije tijd op als goochelaar. Coderen voelt als magie — en soms is het dat ook echt. Ik spreek Nederlands en Engels :)</p>
+    <p><strong>Talen & Tools:</strong> JavaScript, HTML, CSS, Lua, C#</p>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Neem contact met me op via <strong>tim.megens@sintlucasedu.com</strong></p>
+    <p><strong>Instagram</strong> <a href="https://www.instagram.com/SuperTimtastic" target="_blank">@SuperTimtastic</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Tim Megens — Gemaakt met magie! ✨</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
