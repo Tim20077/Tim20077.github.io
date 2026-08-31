@@ -74,6 +74,7 @@ nav a, nav button {
     padding: 20px;
     border-radius: var(--radius);
     transition: transform 0.2s;
+    color: white !important;
 }
 .project:hover {
     transform: translateY(-6px);
