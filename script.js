@@ -88,6 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
 }); // sluit DOMContentLoaded af
 
 // ------------------ SCROLL FUNCTION ------------------
+// ------------------ SMOOTH SCROLL ------------------
+
 function smoothScroll(id) {
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(id).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
 }
+
+// Navigatie links smooth laten scrollen
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const target = link.getAttribute('href');
+        smoothScroll(target);
+    });
+});
+
