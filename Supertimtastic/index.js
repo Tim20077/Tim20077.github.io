@@ -26,14 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const trailContainer = document.getElementById('trail-container');
     document.addEventListener('mousemove', (e) => {
         const trail = document.createElement('div');
-        trail.className = 'trail';
+        trail.classList.add('trail');
+
+        trail.textContent = '✨';
         trail.style.left = `${e.pageX}px`;
         trail.style.top = `${e.pageY}px`;
         trailContainer.appendChild(trail);
 
         setTimeout(() => {
             trail.remove();
-        }, 500);
+        }, 800);
     });
 
     // Klik op quiz-knop
