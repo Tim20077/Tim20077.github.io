@@ -233,3 +233,50 @@ footer {
     border-radius: 10px;
     transition: width 1s ease;
 }
+.contact-section {
+    align-items: center;
+
+}
+.contact-intro {
+    justify-self: center;
+}
+
+.contact-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    color: White  !important;
+}
+
+.contact-card {
+    background: #1e1e24; /* Of een kleur die bij je theme past */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px) rotate(-1deg); /* Speels / kaart-effect */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #6c5ce7; /* Kies je eigen accentkleur */
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.contact-btn:hover {
+    background-color: #a29bfe;
+}
